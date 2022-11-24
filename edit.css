@@ -1,0 +1,52 @@
+html, body {
+    margin: 0;
+    height: 100%;
+  }
+  #map {
+    top: 0;
+    bottom: 0;
+    height: 400px;
+    width: 100%;
+  }
+
+.container1 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.AddForm { grid-area: 1 / 1 / 2 / 2; }
+.MapArea { grid-area: 1 / 2 / 2 / 3; }
+
+.innerdiv{
+    margin: 10%;
+}
+
+
+a.skiplink {
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0;
+    border: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+}
+a.skiplink:focus {
+    clip: auto;
+    height: auto;
+    width: auto;
+    background-color: #fff;
+    padding: 0.3em;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+#map:focus {
+    outline: #4A74A8 solid 0.15em;
+}

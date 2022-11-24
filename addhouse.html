@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <header>
+        <!-- <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="./">Главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="./statistics.html">Статистика</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="./getuser.html">Поиск</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="./countrystats.html">Статистика по стране</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav> -->
+    </header>
+
+    <br>
+
+    <div style="margin-left: 10%; margin-right: 10%;">
+        <div>
+            <a asp-action="Index" class="btn btn-primary" href="http://localhost:5173/index.html">Back to List</a>
+        </div>
+
+        <h1>Add House</h1>
+        <hr />
+        <div class="container1">
+            <div class="AddForm">
+                <h4>House</h4>
+                <div class="innerdiv">
+                    <form asp-controller="House" asp-action="EditHouse">
+                        <div class="form-group">
+                            <label class="control-label">Id</label>
+                            <input class="form-control" id="Id" disabled />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Price</label>
+                            <input class="form-control" id="Price" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Publication Date</label>
+                            <input class="form-control" id="PublicationDate" type="date" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Latitude</label>
+                            <input class="form-control" id="latitude" readonly="readonly" disabled/>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Longitude</label>
+                            <input class="form-control" id="longitude" readonly="readonly" disabled/>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Region</label>
+                            <input class="form-control" id="Region" />
+                        </div>
+                        <div>
+                            <p style="margin-bottom: 0px">Building Type</p>
+                            <input type="radio" id="other" value="0" class="form-check-input" name="type">
+                            <label for="other" style="margin-right: 20px">Other</label>
+
+                            <input type="radio" id="panel" value="1" class="form-check-input" name="type">
+                            <label for="panel" style="margin-right: 20px">Panel</label>
+
+                            <input type="radio" id="monolithic" value="2" class="form-check-input" name="type">
+                            <label for="monolithic" style="margin-right: 20px">Monolithic</label>
+
+                            <input type="radio" id="brick" value="3" class="form-check-input" name="type">
+                            <label for="brick" style="margin-right: 20px">Brick</label>
+
+                            <input type="radio" id="blocky" value="4" class="form-check-input" name="type">
+                            <label for="blocky" style="margin-right: 20px">Blocky</label>
+
+                            <input type="radio" id="wood" value="5" class="form-check-input" name="type">
+                            <label for="wood" style="margin-right: 20px">Wooden</label>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Floor</label>
+                            <input class="form-control" id="floor" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Total Floor</label>
+                            <input class="form-control" id="totalFloor" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Room</label>
+                            <input class="form-control" id="room" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Area</label>
+                            <input class="form-control" id="area" />
+                        </div>
+                        <div class="form-group">
+                            <p style="margin-bottom: 0px">Apartment Type</p>
+                            <input type="radio" id="other1" value="1" class="form-check-input" name="apart">
+                            <label for="other" style="margin-right: 20px">Secondary real estate market</label>
+
+                            <input type="radio" id="panel" value="2" class="form-check-input" name="apart">
+                            <label for="panel" style="margin-right: 20px">New building</label>
+                        </div>
+                        <div class="form-group" hidden>
+                            <label class="control-label"></label>
+                            <input class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Photo</label>
+                            <input class="form-control" id="photo" />
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <button type="button" id="editbtn" class="btn btn-primary">Add</button>
+                            <br />
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="MapArea">
+                <a class="skiplink" href="#map">Go to map</a>
+                <div id="map" tabindex="0"></div>
+                <script src="https://unpkg.com/elm-pep@1.0.6/dist/elm-pep.js"></script>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <script type="module" src="./js/add.js"></script>
+</body>
+
+</html>
