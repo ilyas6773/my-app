@@ -5,76 +5,64 @@ import OSM from 'ol/source/OSM';
 
 
 
-const id = Number(window.location.search.replace("?id=", ""));
-let setError = document.getElementById('error');
 
 
 
-document.getElementById('editbtn').onclick = function () {
+document.getElementById('addBtn').onclick = function () {
+    let title = document.getElementById('Title').value;
     let price = document.getElementById('Price').value;
-    let id = document.getElementById('Id').value;
-    //let date = document.getElementById('PublicationDate').value;
+    let date = document.getElementById('PublicationDate').value;
     let lat = document.getElementById('latitude').value;
     let lon = document.getElementById('longitude').value;
-    let reg = document.getElementById('Region').value;
-    let floor = document.getElementById('floor').value;
-    let totalfloor = document.getElementById('totalFloor').value;
-    let room = document.getElementById('room').value;
-    let area = document.getElementById('area').value;
-    let photo = document.getElementById('photo').value;
+    let file = document.getElementById('file').files[0];
 
-    let object;
-    if (document.getElementById('other1').checked) {
-        object = 1;
-    } else { object = 2; }
-
-    let buildType;
-    if (document.getElementById('other').checked) {
-        buildType = 0;
-    } else if (document.getElementById('panel').checked) {
-        buildType = 1;
-    } else if (document.getElementById('monolithic').checked) {
-        buildType = 2;
-    } else if (document.getElementById('brick').checked) {
-        buildType = 3;
-    } else if (document.getElementById('blocky').checked) {
-        buildType = 4;
-    } else { buildType = 5; }
-
-    editUser(price, id, lat, lon, reg, floor, totalfloor, room, area, photo, buildType, object);
+    console.log(date);
+    addUser(title, price, date, lat, lon, file);
 }
 
 
-async function editUser(price, id, lat, lon, reg, floor, totalfloor, room, area, photo, buildType, object) {
+async function addUser(title, price, date, lat, lon, file) {
 
-    let body = {
-        Price: price,
-        Geo_Lat: lat,
-        Geo_Lon: lon,
-        Region: reg,
-        Building_Type: buildType,
-        FloorNum: floor,
-        TotalFloor: totalfloor,
-        Rooms: room,
-        Area: area,
-        Object_Type: object,
-        Id: id,
-        status: 1,
-        Photopath: photo,
-    };
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = function () {
+        let body = {
+            id: 0,
+            title: title,
+            price: price,
+            publicationDate : date,
+            geo_Lat: lat,
+            geo_Lon: lon,
+            status: 1,
+            file: reader.result.replace("data:application/json;base64,", '')
+        };
 
-    let y = JSON.stringify(body);
-    console.log(y);
+        console.log(JSON.stringify(body));
 
-    fetch(`https://localhost:7265/api/Houses/Post?x=${y}`, {
-        method: 'POST',
-        body: y,
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
 
-    window.location.replace("http://localhost:5173/index.html");
+        fetch('http://localhost:5195/api/House/Add', {
+            method: 'POST',
+            body: JSON.stringify(body),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        setTimeout(() => {  location.replace("http://localhost:5173/index.html"); }, 1000);
+        
+    }
+
+    // let y = JSON.stringify(body);
+    // console.log(y);
+
+    // fetch(`https://localhost:5195/api/House/Post?x=${y}`, {
+    //     method: 'POST',
+    //     body: y,
+    //     headers: {
+    //         'Content-Type': 'application/json'
+    //     }
+    // });
+
+    // window.location.replace("http://localhost:5173/index.html");
 }
 
 //////////////////////////////////////////MAP//////////////////////////////////////////

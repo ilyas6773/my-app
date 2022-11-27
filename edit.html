@@ -56,6 +56,10 @@
                             <input class="form-control" id="Id" disabled />
                         </div>
                         <div class="form-group">
+                            <label class="control-label">Title</label>
+                            <input class="form-control" id="Title" />
+                        </div>
+                        <div class="form-group">
                             <label class="control-label">Price</label>
                             <input class="form-control" id="Price" />
                         </div>
@@ -72,68 +76,14 @@
                             <input class="form-control" id="longitude" readonly="readonly" disabled/>
                         </div>
                         <div class="form-group">
-                            <label class="control-label">Region</label>
-                            <input class="form-control" id="Region" />
-                        </div>
-                        <div>
-                            <p style="margin-bottom: 0px">Building Type</p>
-                            <input type="radio" id="other" value="0" class="form-check-input" name="type">
-                            <label for="other" style="margin-right: 20px">Other</label>
-
-                            <input type="radio" id="panel" value="1" class="form-check-input" name="type">
-                            <label for="panel" style="margin-right: 20px">Panel</label>
-
-                            <input type="radio" id="monolithic" value="2" class="form-check-input" name="type">
-                            <label for="monolithic" style="margin-right: 20px">Monolithic</label>
-
-                            <input type="radio" id="brick" value="3" class="form-check-input" name="type">
-                            <label for="brick" style="margin-right: 20px">Brick</label>
-
-                            <input type="radio" id="blocky" value="4" class="form-check-input" name="type">
-                            <label for="blocky" style="margin-right: 20px">Blocky</label>
-
-                            <input type="radio" id="wood" value="5" class="form-check-input" name="type">
-                            <label for="wood" style="margin-right: 20px">Wooden</label>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label">Floor</label>
-                            <input class="form-control" id="floor" />
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">Total Floor</label>
-                            <input class="form-control" id="totalFloor" />
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">Room</label>
-                            <input class="form-control" id="room" />
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">Area</label>
-                            <input class="form-control" id="area" />
-                        </div>
-                        <div class="form-group">
-                            <p style="margin-bottom: 0px">Apartment Type</p>
-                            <input type="radio" id="other1" value="1" class="form-check-input" name="apart">
-                            <label for="other" style="margin-right: 20px">Secondary real estate market</label>
-
-                            <input type="radio" id="panel" value="2" class="form-check-input" name="apart">
-                            <label for="panel" style="margin-right: 20px">New building</label>
-                        </div>
-                        <div class="form-group" hidden>
-                            <label class="control-label"></label>
-                            <input class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">Photo</label>
-                            <input class="form-control" id="photo" />
+                            <label class="control-label">File</label>
+                            <input type="file" class="form-control" id="file" />
                         </div>
                         <br />
                         <div class="form-group">
-                            <button type="button" id="editbtn" class="btn btn-primary">Edit</button>
+                            <button type="button" id="editbtn" class="btn btn-primary">Add</button>
                             <br />
                         </div>
-
                     </form>
                 </div>
             </div>
