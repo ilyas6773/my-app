@@ -10,31 +10,31 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
+
+    <link rel="icon" type="" href="./icons8-house-48.png">
+    <title>Add House</title>
 </head>
 
 <body>
 
     <header>
-        <!-- <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="./">Главная</a>
+                        <li>
+                            <img src="./icons8-house-48.png">
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="./statistics.html">Статистика</a>
+                            <a class="nav-link text-dark" href="./index.html">House List</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="./getuser.html">Поиск</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="./countrystats.html">Статистика по стране</a>
+                            <a class="nav-link text-dark" href="./addhouse.html">Добавить</a>
                         </li>
                     </ul>
                 </div>
             </div>
-        </nav> -->
+        </nav>
     </header>
 
     <br>
@@ -69,11 +69,11 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label">Latitude</label>
-                            <input class="form-control" id="latitude" readonly="readonly" disabled/>
+                            <input class="form-control" id="latitude" readonly="readonly" disabled />
                         </div>
                         <div class="form-group">
                             <label class="control-label">Longitude</label>
-                            <input class="form-control" id="longitude" readonly="readonly" disabled/>
+                            <input class="form-control" id="longitude" readonly="readonly" disabled />
                         </div>
                         <div class="form-group">
                             <label class="control-label">File</label>
@@ -81,6 +81,8 @@
                         </div>
                         <br />
                         <div class="form-group">
+                            <div id="error"></div>
+
                             <button type="button" id="addBtn" class="btn btn-primary">Add</button>
                             <br />
                         </div>

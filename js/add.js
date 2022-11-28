@@ -23,6 +23,28 @@ document.getElementById('addBtn').onclick = function () {
 
 async function addUser(title, price, date, lat, lon, file) {
 
+    if (title == undefined) {
+        document.getElementById('error').innerHTML = '<p><font color="red">Fill all forms!</font></p>';
+        return;
+    }
+    if (price == undefined) {
+        document.getElementById('error').innerHTML = '<p><font color="red">Fill all forms!</font></p>';
+        return;
+    }
+    if ( date == undefined) {
+        document.getElementById('error').innerHTML = '<p><font color="red">Fill all forms!</font></p>';
+        return;
+    }
+
+    if ( lat == undefined) {
+        document.getElementById('error').innerHTML = '<p><font color="red">Fill all forms!</font></p>';
+        return;
+    }
+
+    if (file == undefined) {
+        document.getElementById('error').innerHTML = '<p><font color="red">Fill all forms!</font></p>';
+        return;
+    }
     var reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = function () {
@@ -30,14 +52,13 @@ async function addUser(title, price, date, lat, lon, file) {
             id: 0,
             title: title,
             price: price,
-            publicationDate : date,
+            publicationDate: date,
             geo_Lat: lat,
             geo_Lon: lon,
             status: 1,
-            file: reader.result.replace("data:application/json;base64,", '')
+            file: reader.result.replace("data:text/plain;base64,", '')
         };
 
-        console.log(JSON.stringify(body));
 
 
         fetch('http://localhost:5195/api/House/Add', {
@@ -47,8 +68,8 @@ async function addUser(title, price, date, lat, lon, file) {
                 'Content-Type': 'application/json'
             }
         })
-        setTimeout(() => {  location.replace("http://localhost:5173/index.html"); }, 1000);
-        
+        setTimeout(() => { location.replace("http://localhost:5173/index.html"); }, 1000);
+
     }
 
     // let y = JSON.stringify(body);

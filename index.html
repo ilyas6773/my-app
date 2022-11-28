@@ -1,25 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    .table-sortable th {
+      cursor: pointer;
+    }
+
+    .table-sortable .th-sort-asc::after {
+      content: "\25b4";
+    }
+
+    .table-sortable .th-sort-desc::after {
+      content: "\25be";
+    }
+
+    .table-sortable .th-sort-asc::after,
+    .table-sortable .th-sort-desc::after {
+      margin-left: 5px;
+    }
+
+    .table-sortable .th-sort-asc,
+    .table-sortable .th-sort-desc {
+      background: rgba(0, 0, 0, 0.1);
+    }
+  </style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
     
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-  </head>
-  <body>
+    <link rel="icon" type="" href="./icons8-house-48.png">
+    <title>List Houses</title>
 
-    <header>
-      <!-- <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
           <div class="container-fluid">
               <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                   <ul class="navbar-nav flex-grow-1">
-                      <li class="nav-item">
-                          <a class="nav-link text-dark" href="./">Список</a>
+                      <li>
+                        <img src="./icons8-house-48.png">
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link text-dark" href="./statistics.html">Статистика</a>
+                          <a class="nav-link text-dark" href="./index.html">House List</a>
                       </li>
                       <li class="nav-item">
                           <a class="nav-link text-dark" href="./addhouse.html">Добавить</a>
@@ -27,90 +58,89 @@
                   </ul>
               </div>
           </div>
-      </nav> -->
+      </nav>
   </header>
 
   <br>
 
-    <div class="container">
+  <div class="container">
 
-      <br>
-      <br>
-      <br>
-      <div class="box-3">
-        <div>
-          <a class="btn btn-three"  href="./addhouse.html">Add House</a>
-        </div>
+    <br>
+    <br>
+    <br>
+    <div class="box-3">
+      <div>
+        <a class="btn btn-three" href="./addhouse.html">Add House</a>
       </div>
-      <center>
-        <h1>All Houses</h1>
-      </center>
+    </div>
+    <center>
+      <h1>All Houses</h1>
+    </center>
 
-      <!--<div class="form-check">
-        <input type="checkbox" class="form-check-input" id="IsActive">
-        <label class="form-check-label" for="IsActive">Inactive</label>
-      </div>-->
 
-      
 
-      <table class="table table-striped">
-        <thead>
+    <table class="table table-sortable table-stripped">
+      <thead>
         <tr>
-            <th>Id</th>
-            <th>Title</th>
-            <th>Price</th>
-            <th>Publication Date</th>
-            <th>Latitude</th>
-            <th>Longitude</th>
-            <th>File</th>
-            <th>Action</th>
+          <th>Id</th>
+          <th>Title</th>
+          <th>Price</th>
+          <th>Publication Date</th>
+          <th>Latitude</th>
+          <th>Longitude</th>
+          <th>File</th>
+          <th>Action</th>
         </tr>
-        </thead>
-        <tbody class="getusers"></tbody>
+      </thead>
+      <tbody class="getusers"></tbody>
     </table>
 
 
 
-    
+
     <div class="box-3">
       <div>
-        <a class="btn btn-stat"  id="statistika">Statistics</a>
+        <a class="btn btn-stat" id="statistika">Statistics</a>
       </div>
     </div>
 
     <div>
       <table class="table">
         <thead>
-        <tr>
+          <tr>
             <th>All Entries</th>
             <th>Average Price</th>
             <th>Top Price</th>
             <th>Low Price</th>
-            <th>Distinct Regions</th>
-            <th>The oldest Entrie</th>
-        </tr>
+            <th>Active Houses</th>
+            <th>InActive Houses</th>
+            <th>Oldest Record</th>
+            <th>Youngest Record</th>
+          </tr>
         </thead>
         <tbody id="stats"></tbody>
       </table>
     </div>
-    </div>
-    
+  </div>
 
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/jquery-migrate-3.4.0.js"></script>
 
-    <script>
-      function dropUser(id){
-        fetch(`http://localhost:5195/api/House/Delete?id=${id}`, {
-          method: "DELETE"
-        });  
 
-        location.reload();
-      }
-    </script>-
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/jquery-migrate-3.4.0.js"></script>
 
-    <script type="module" src="./js/main.js"></script>
-    
-  </body>
+  <script>
+    function dropUser(id) {
+      fetch(`http://localhost:5195/api/House/Delete?id=${id}`, {
+        method: "DELETE"
+      });
+
+      //location.reload();
+    }
+  </script>-
+
+  <script type="module" src="./js/main.js"></script>
+  <script type="module" src="./js/tablesort.js"></script>
+
+</body>
+
 </html>
